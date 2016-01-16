@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesvermillion/real-fast-server-framework.git"
+    "url": "git+https://github.com/Real-Fast-Server/real-fast-server-framework.git"
   },
   "keywords": [
     "frame-work",
@@ -20,9 +20,9 @@
   "author": "Erika Hokanson, Logan Tegman, Jose Tello, Jim Vermillion",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jamesvermillion/real-fast-server-framework/issues"
+    "url": "https://github.com/Real-Fast-Server/real-fast-server-framework/issues"
   },
-  "homepage": "https://github.com/jamesvermillion/real-fast-server-framework#readme",
+  "homepage": "https://github.com/Real-Fast-Server/real-fast-server-framework#readme",
   "devDependencies": {
     "chai": "^3.4.1",
     "chai-http": "^1.0.0",
