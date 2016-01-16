@@ -1,0 +1,33 @@
+{
+  "name": "real-fast-server-framework",
+  "version": "1.0.0",
+  "description": "A super fast in depth framework like express, but way better and developed over a weekend",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/**/*test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesvermillion/real-fast-server-framework.git"
+  },
+  "keywords": [
+    "frame-work",
+    "real-fast-server"
+  ],
+  "author": "Erika Hokanson, Logan Tegman, Jose Tello, Jim Vermillion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesvermillion/real-fast-server-framework/issues"
+  },
+  "homepage": "https://github.com/jamesvermillion/real-fast-server-framework#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.3.4"
+  }
+}
