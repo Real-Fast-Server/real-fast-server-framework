@@ -7,14 +7,18 @@ const expect = chai.expect;
 
 describe('http server: GET', () => {
   var router = new Router(); 
+  var app;
   before( (done) => {
     router.get('/hello', (req, res) => {
       res.writeHead(200, {'Content-Type': 'text/plain'});
       res.write('hello world');
       res.end();
     });
-    var app = server.start(router).listen(3000);
+    app = server.start(router).listen(3000);
     done()
+  });
+  after( () => {
+    app.close();
   });
 
   it('should show the text hello', (done) => {
@@ -31,6 +35,42 @@ describe('http server: GET', () => {
   it('should show the 404', (done) => {
     request('localhost:3000')
       .get('/hellod')
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(res).to.have.status(404);
+        expect(res.text).to.eql('404 Not Found');
+        done();
+    });
+  });
+});
+
+describe('http server: POST', () => {
+  var router = new Router(); 
+  var app;
+  before( (done) => {
+    router.post('/hellos', (req, res) => {
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.write('hellos world');
+      res.end();
+    });
+    app = server.start(router).listen(3000);
+    done()
+  });
+
+  it('should show the text hello', (done) => {
+    request('localhost:3000')
+      .post('/hellos')
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(res).to.have.status(200);
+        expect(res.text).to.eql('hellos world');
+        done();
+    });
+  });
+
+  it('should show the 404', (done) => {
+    request('localhost:3000')
+      .post('/hellod')
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(404);
