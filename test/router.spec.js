@@ -22,7 +22,7 @@ describe('Router', () => {
       expect(req.url).to.eql(testReq.url);
       expect(res).to.be.null;
     });
-    router.route()(testReq, null);
+    router.route(testReq, null);
     expect(cbFired).to.be.true;
   });
 
@@ -36,7 +36,7 @@ describe('Router', () => {
       expect(req.url).to.eql(testReq.url);
       expect(res).to.be.null;
     });
-    router.route()(testReq, null);
+    router.route(testReq, null);
     expect(cbFired).to.be.true;
   });
 
@@ -55,7 +55,7 @@ describe('Router', () => {
       }
     };
     const router = new Router();
-    router.route()({ method: 'GET', url: 'invalid' }, testRes);
+    router.route({ method: 'GET', url: 'invalid' }, testRes);
     expect(called).to.eql(2);
   });
 });

@@ -1,3 +1,5 @@
+'use strict';
+
 const Router = require(__dirname + '/../lib/router.js');
 const server = require(__dirname + '/../lib/server.js');
 const chai = require('chai');
@@ -6,19 +8,17 @@ const request = chai.request;
 const expect = chai.expect;
 
 describe('http server: GET', () => {
-  var router = new Router(); 
-  var app;
-  before( (done) => {
+  let router = new Router();
+  let app;
+  before(() => {
     router.get('/hello', (req, res) => {
-      // res.writeHead(200, {'Content-Type': 'text/plain'});
-      // res.write('hello world');
-      // res.end();
-      router.send(res, '<!DOCTYPE html>');
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.write('hello world');
+      res.end();
     });
     app = server.start(router).listen(3000);
-    done()
   });
-  after( () => {
+  after(() => {
     app.close();
   });
 
@@ -46,16 +46,18 @@ describe('http server: GET', () => {
 });
 
 describe('http server: POST', () => {
-  var router = new Router(); 
-  var app;
-  before( (done) => {
+  let router = new Router();
+  let app;
+  before(() => {
     router.post('/hellos', (req, res) => {
-      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
       res.write('hellos world');
       res.end();
     });
     app = server.start(router).listen(3000);
-    done()
+  });
+  after(() => {
+    app.close();
   });
 
   it('should show the text hello', (done) => {
