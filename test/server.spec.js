@@ -10,9 +10,10 @@ describe('http server: GET', () => {
   var app;
   before( (done) => {
     router.get('/hello', (req, res) => {
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.write('hello world');
-      res.end();
+      // res.writeHead(200, {'Content-Type': 'text/plain'});
+      // res.write('hello world');
+      // res.end();
+      router.send(res, '<!DOCTYPE html>');
     });
     app = server.start(router).listen(3000);
     done()
