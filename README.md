@@ -11,12 +11,13 @@ and a simple response API without any feature bloat.
   +   [Server](https://github.com/Real-Fast-Server/real-fast-server-framework#server)
   +   [Router](https://github.com/Real-Fast-Server/real-fast-server-framework#router)
 +   [Writing Middleware](https://github.com/Real-Fast-Server/real-fast-server-framework#writing-middleware)
++   [Dependencies](https://github.com/Real-Fast-Server/real-fast-server-framework#dependencies)
 +   [Authors](https://github.com/Real-Fast-Server/real-fast-server-framework#authors)
 +   [License](https://github.com/Real-Fast-Server/real-fast-server-framework#license)
 
 ## Getting started
 
-Here's how you would get up and running with a server on port 3000 with a get and post route.
+Here's how you would get up and running with a server on port 3000 with GET and POST routes.
 
 ```js
 const server = require('real-fast-server');
@@ -65,7 +66,7 @@ query strings into an object and add it as a property of `req`.
 ```js
 const app = server.start(router);
 app.use((req, res) => req.query = queryStringParser(req));
-app.liten(3000);
+app.listen(3000);
 ```
 
 #### req.send(message, [contentType])
@@ -168,6 +169,20 @@ myAwesomeMiddleware = (req, res) => {
 app.use(myAwesomeMiddleware);
 // All req objects will now have someUsefulProp
 ```
+
+## Dependencies
+"devDependencies": {
+  "chai": "^3.4.1",
+  "chai-http": "^1.0.0",
+  "eslint": "^1.10.3",
+  "gulp": "^3.9.0",
+  "gulp-eslint": "^1.1.1",
+  "gulp-mocha": "^2.2.0",
+  "mocha": "^2.3.4"
+},
+"dependencies": {
+  "mime-types": "^2.1.9"
+}
 
 ## Authors
 
