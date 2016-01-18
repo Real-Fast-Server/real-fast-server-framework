@@ -4,6 +4,16 @@ A lightweight server/router combo built on top of node HTTP.
 It provides some conveniences like JSON body parsing, static routing,
 and a simple response API without any feature bloat.
 
+## Contents
+
++   [Getting Started](https://github.com/Real-Fast-Server/real-fast-server-framework#getting-started)
++   [API](https://github.com/Real-Fast-Server/real-fast-server-framework#api)
+  +   [Server](https://github.com/Real-Fast-Server/real-fast-server-framework#server)
+  +   [Router](https://github.com/Real-Fast-Server/real-fast-server-framework#router)
++   [Writing Middleware]()
++   [Authors](https://github.com/Real-Fast-Server/real-fast-server-framework#authors)
++   [License](https://github.com/Real-Fast-Server/real-fast-server-framework#license)
+
 ## Getting started
 
 Here's how you would get up and running with a server on port 3000 with a get and post route.
@@ -43,6 +53,39 @@ Constructor for the router object. Must be called with the `new` keyword.
 
 ```js
 const router = new server.Router();
+```
+
+#### app.use(function(req, res))
+
+Adds a middleware function to the running server. This function runs before requests are
+handled and should be used to perform any transforms or processing you want to
+do for every request. For example, you could create middleware that would parse
+query strings into an object and add it as a property of `req`.
+
+```js
+const app = server.start(router);
+app.use((req, res) => req.query = queryStringParser(req));
+app.liten(3000);
+```
+
+#### req.send(message, [contentType])
+
+Built in middleware adds this function to all response objects.
+This will automatically handle writing headers and closing the connection to
+simplify writing responses. It can detect JSON, HTML, and plaintext responses.
+Optional second parameter can be used to override the autodetect and use a
+specific Content-Type.
+
+```js
+router.post('/index', (req, res) => {
+  // Will use Content-Type application/json
+  res.send({ 'hello': 'world' });
+});
+
+router.get('/test' (req, res) => {
+  // Will use Content-Type text/plain
+  res.send('Hello world!');
+});
 ```
 
 ### Router
@@ -109,6 +152,22 @@ Object that holds the current routing table. Here's what it might look like for 
 ```
 
 We throw in a `404` for free, but you're welcome to overwrite it!
+
+## Writing Middleware
+
+Real-Fast-Server is extensible and allows you to write your own middleware that
+performs computations on the `req` and `res` objects of a request before they
+are handled. Simply write a function that takes in a `req` and `res` and mutates
+them in whatever way you require.
+
+Example:
+```js
+myAwesomeMiddleware = (req, res) => {
+  req.someUsefulProp = someCoolFunction();
+};
+app.use(myAwesomeMiddleware);
+// All req objects will now have someUsefulProp
+```
 
 ## Authors
 
