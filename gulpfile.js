@@ -9,14 +9,14 @@ var files = ['index.js', 'gulpfile.js', './lib/*.js', './test/*.spec.js',
 
 gulp.task('lint', () => {
   return gulp.src(files)
-  .pipe(eslint())
-  .pipe(eslint.format())
-  .pipe(eslint.failAfterError());
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('mocha', () => {
   return gulp.src('test/*.spec.js')
-  .pipe(mocha({ reporter: 'nyan' }));
+    .pipe(mocha({ reporter: 'nyan' }));
 });
 
 gulp.task('watch', () => {

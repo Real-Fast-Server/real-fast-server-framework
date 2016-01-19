@@ -20,7 +20,7 @@ describe('static routing', () => {
     }
   });
 
-  it('should return markdown content-type', (done) => {
+  it('should return markdown content-type', done => {
     let called = 0;
     const testRes = {
       writeHead(statusCode, headers) {
@@ -49,7 +49,7 @@ describe('static routing', () => {
       });
   });
 
-  it('should return json content-type', (done) => {
+  it('should return json content-type', done => {
     let called = 0;
     const testRes = {
       writeHead(statusCode, headers) {
@@ -78,7 +78,7 @@ describe('static routing', () => {
       });
   });
 
-  it('should not register a route for directories', (done) => {
+  it('should not register a route for directories', done => {
     let called = 0;
     const testRes = {
       writeHead(statusCode, headers) {
@@ -102,7 +102,7 @@ describe('static routing', () => {
   });
 
   after(() => {
-    fs.readdirSync(testDir).forEach((file) => {
+    fs.readdirSync(testDir).forEach(file => {
       const currPath = path.join(testDir, file);
       if (fs.statSync(currPath).isFile()) {
         fs.unlinkSync(path.join(testDir, file));

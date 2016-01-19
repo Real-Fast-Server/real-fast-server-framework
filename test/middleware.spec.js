@@ -9,7 +9,7 @@ const expect = chai.expect;
 describe('jsonParser', () => {
   it('should add correct body prop to req', (done) => {
     const testRouter = {
-      route: (req, res) => {
+      route(req, res) {
         expect(req.body).to.be.an('object');
         expect(req.body).to.eql({ 'test': 'test' });
         res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -38,7 +38,7 @@ describe('middleware.use()', () => {
   });
 
   it('addons should get called by middleware function', () => {
-    const testRouter = { route: () => {return;} };
+    const testRouter = { route() {return;} };
     let count = 0;
     middleware.use(() => count++);
     middleware.use(() => count++);
