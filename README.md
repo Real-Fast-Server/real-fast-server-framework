@@ -1,4 +1,4 @@
-# real-fast-server-framework
+# Real Fast Server (HTTP Framework)
 
 A lightweight server/router combo built on top of node HTTP.
 It provides some conveniences like JSON body parsing, static routing,
@@ -171,6 +171,8 @@ app.use(myAwesomeMiddleware);
 ```
 
 ## Dependencies
+
+```
 "devDependencies": {
   "chai": "^3.4.1",
   "chai-http": "^1.0.0",
@@ -183,6 +185,7 @@ app.use(myAwesomeMiddleware);
 "dependencies": {
   "mime-types": "^2.1.9"
 }
+```
 
 ## Authors
 
