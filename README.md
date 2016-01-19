@@ -96,7 +96,6 @@ router.get('/test' (req, res) => {
 Adds a `GET` route that handles requests with the passed in callback.
 Returns the router to allow for method chaining.
 
-Example:
 ```js
 router.get('/index', (req, res) => {
   res.send('Hello world!');
@@ -127,15 +126,29 @@ Adds a `DELETE` route that handles requests with the passed in callback.
 Returns the router to allow for method chaining.
 See `router.get` docs for example usage.
 
+#### router.static(pathString)
+
+Takes a relative or absolute path and creates routes for all the filenames found
+in that folder. Returns an ES2015 promise in-case anything else you're doing is contingent
+upon those routes being created. (Routes are created at calltime and changes to
+the file structure after the method is called will not be reflected in routes).
+
+```js
+router.static('./public');
+```
+
 #### router.route(req, res)
 
-This is the method the server should call when a request is made. It routes to entries on the routing table using the `method` and `url` properties of the `req` and runs the callback. Generally you want to be passing this in when you create your server.
+This is the method the server should call when a request is made. It routes to
+entries on the routing table using the `method` and `url` properties of the `req`
+and runs the callback. Generally you want to be passing this in when you create your server.
 
 See the Getting Started Guide for an example of where you use this.
 
 #### router.routes
 
-Object that holds the current routing table. Here's what it might look like for the code in the Getting Started Guide.
+Object that holds the current routing table. Here's what it might look like for
+the code in the Getting Started Guide.
 
 ```js
 {
@@ -189,7 +202,10 @@ app.use(myAwesomeMiddleware);
 
 ## Authors
 
-This server/router was written by [Erika Hokanson](https://github.com/erikawho), [Logan Tegman](https://github.com/ltegman), [Jose Tello](https://github.com/josectello), and [James Vermillion](https://github.com/jamesvermillion) as coursework for the Javascript 401 course at Code Fellows.
+This server/router was written by [Erika Hokanson](https://github.com/erikawho),
+[Logan Tegman](https://github.com/ltegman), [Jose Tello](https://github.com/josectello),
+and [James Vermillion](https://github.com/jamesvermillion) as coursework for the
+Javascript 401 course at Code Fellows.
 
 ## License
 
