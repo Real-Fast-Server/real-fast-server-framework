@@ -9,26 +9,26 @@ const expect = chai.expect;
 /* eslint-disable no-unused-expressions */
 
 describe('res.send()', () => {
-  it('should write a plain text response', (done) => {
+  it('should write a plain text response', done => {
     let called = 0;
     const testRes = {
-      writeHead: (code, contentType) => {
+      writeHead(code, contentType) {
         called++;
         expect(code).to.eql(200);
         expect(contentType).to.be.an('object');
         expect(contentType['Content-Type']).to.eql('text/plain');
       },
-      write: message => {
+      write(message) {
         called++;
         expect(message).to.be.a('string');
         expect(message).to.eql('Hello World!');
       },
-      end: () => {
+      end() {
         called++;
       }
     };
     const testRouter = {
-      route: (req, res) => {
+      route(req, res) {
         for (let prop in testRes) {
           if (testRes.hasOwnProperty(prop)) {
             res['super' + prop] = res[prop];
@@ -49,26 +49,26 @@ describe('res.send()', () => {
       });
   });
 
-  it('should write a json response', (done) => {
+  it('should write a json response', done => {
     let called = 0;
     const testRes = {
-      writeHead: (code, contentType) => {
+      writeHead(code, contentType) {
         called++;
         expect(code).to.eql(200);
         expect(contentType).to.be.an('object');
         expect(contentType['Content-Type']).to.eql('application/json');
       },
-      write: message => {
+      write(message) {
         called++;
         expect(message).to.be.a('string');
         expect(message).to.eql('{"msg":"Hello World!"}');
       },
-      end: () => {
+      end() {
         called++;
       }
     };
     const testRouter = {
-      route: (req, res) => {
+      route(req, res) {
         for (let prop in testRes) {
           if (testRes.hasOwnProperty(prop)) {
             res['super' + prop] = res[prop];

@@ -18,7 +18,7 @@
     "real-fast-server"
   ],
   "author": "Erika Hokanson, Logan Tegman, Jose Tello, Jim Vermillion",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Real-Fast-Server/real-fast-server-framework/issues"
   },

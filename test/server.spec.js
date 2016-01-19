@@ -22,7 +22,7 @@ describe('http server: GET', () => {
     app.close();
   });
 
-  it('should show the text hello', (done) => {
+  it('should show the text hello', done => {
     request('localhost:3000')
       .get('/hello')
       .end((err, res) => {
@@ -33,7 +33,7 @@ describe('http server: GET', () => {
     });
   });
 
-  it('should show the 404', (done) => {
+  it('should show the 404', done => {
     request('localhost:3000')
       .get('/hellod')
       .end((err, res) => {
@@ -60,7 +60,7 @@ describe('http server: POST', () => {
     app.close();
   });
 
-  it('should show the text hello', (done) => {
+  it('should show the text hello', done => {
     request('localhost:3000')
       .post('/hellos')
       .end((err, res) => {
@@ -71,7 +71,7 @@ describe('http server: POST', () => {
     });
   });
 
-  it('should show the 404', (done) => {
+  it('should show the 404', done => {
     request('localhost:3000')
       .post('/hellod')
       .end((err, res) => {
