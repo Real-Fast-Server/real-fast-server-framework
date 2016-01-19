@@ -17,6 +17,12 @@ and a simple response API without any feature bloat.
 
 ## Getting started
 
+[Real-Fast-Server on NPM](https://www.npmjs.com/package/real-fast-server)
+
+```
+npm install real-fast-server
+```
+
 Here's how you would get up and running with a server on port 3000 with GET and POST routes.
 
 ```js
