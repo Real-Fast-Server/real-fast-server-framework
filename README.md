@@ -69,7 +69,13 @@ app.use((req, res) => req.query = queryStringParser(req));
 app.listen(3000);
 ```
 
-#### req.send(message, [contentType])
+#### req.body
+
+If JSON was sent in the request this field will be automatically populated by
+our JSON parsing middleware. It will be of type `object` if populated and `null`
+otherwise.
+
+#### res.send(message, [contentType])
 
 Built in middleware adds this function to all response objects.
 This will automatically handle writing headers and closing the connection to
