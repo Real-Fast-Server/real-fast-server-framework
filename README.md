@@ -77,13 +77,13 @@ app.listen(3000);
 
 #### req.body
 
-If JSON was sent in the request this field will be automatically populated by
+If JSON was sent in the request, this field will be automatically populated by
 our JSON parsing middleware. It will be of type `object` if populated and `null`
 otherwise.
 
 #### res.send(message, [contentType])
 
-Built in middleware adds this function to all response objects.
+Built-in middleware adds this function to all response objects.
 This will automatically handle writing headers and closing the connection to
 simplify writing responses. It can detect JSON, HTML, and plaintext responses.
 Optional second parameter can be used to override the autodetect and use a
@@ -105,7 +105,7 @@ router.get('/test' (req, res) => {
 
 #### router.get(path, callback(req, res))
 
-Adds a `GET` route that handles requests with the passed in callback.
+Adds a `GET` route that handles requests with the passed-in callback.
 Returns the router to allow for method chaining.
 
 ```js
@@ -116,34 +116,33 @@ router.get('/index', (req, res) => {
 
 #### router.post(path, callback(req, res))
 
-Adds a `POST` route that handles requests with the passed in callback.
+Adds a `POST` route that handles requests with the passed-in callback.
 Returns the router to allow for method chaining.
 See `router.get` docs for example usage.
 
 #### router.put(path, callback(req, res))
 
-Adds a `PUT` route that handles requests with the passed in callback.
+Adds a `PUT` route that handles requests with the passed-in callback.
 Returns the router to allow for method chaining.
 See `router.get` docs for example usage.
 
 #### router.patch(path, callback(req, res))
 
-Adds a `PATCH` route that handles requests with the passed in callback.
+Adds a `PATCH` route that handles requests with the passed-in callback.
 Returns the router to allow for method chaining.
 See `router.get` docs for example usage.
 
 #### router.delete(path, callback(req, res))
 
-Adds a `DELETE` route that handles requests with the passed in callback.
+Adds a `DELETE` route that handles requests with the passed-in callback.
 Returns the router to allow for method chaining.
 See `router.get` docs for example usage.
 
 #### router.static(pathString)
 
 Takes a relative or absolute path and creates routes for all the filenames found
-in that folder. Returns an ES2015 promise in-case anything else you're doing is contingent
-upon those routes being created. (Routes are created at calltime and changes to
-the file structure after the method is called will not be reflected in routes).
+in that folder. Returns an ES2015 promise just in case anything else you're doing is contingent
+upon those routes being created. (Routes that are created at calltime, as well as changes made to the file structure after the method is called, will not be reflected in routes).
 
 ```js
 router.static('./public');
@@ -216,8 +215,8 @@ app.use(myAwesomeMiddleware);
 
 This server/router was written by [Erika Hokanson](https://github.com/erikawho),
 [Logan Tegman](https://github.com/ltegman), [Jose Tello](https://github.com/josectello),
-and [James Vermillion](https://github.com/jamesvermillion) as coursework for the
-Javascript 401 course at Code Fellows.
+and [James Vermillion](https://github.com/jamesvermillion) for the
+JavaScript 401 course at Code Fellows.
 
 ## License
 
