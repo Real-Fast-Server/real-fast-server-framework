@@ -1,6 +1,6 @@
 {
   "name": "real-fast-server",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A super fast in depth framework like express, but way better and developed over a weekend",
   "main": "index.js",
   "directories": {
@@ -31,5 +31,8 @@
     "gulp-eslint": "^1.1.1",
     "gulp-mocha": "^2.2.0",
     "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "mime-types": "^2.1.9"
   }
 }
